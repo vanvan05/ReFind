@@ -6,9 +6,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lapor Barang Hilang</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="public/style/styles.css">
+    <link rel="stylesheet" href="public/style/styles-claims.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         form {
             display: flex;
@@ -137,6 +139,19 @@
                 max-height: 200px;
             }
         }
+
+        .wrapper {
+            width: 100% !important;
+            max-width: 100vw !important;
+            padding: 0 !important;
+        }
+
+        .container {
+            width: 100% !important;
+            max-width: 100vw !important;
+            padding-left: 2vw !important;
+            padding-right: 2vw !important;
+        }
     </style>
 </head>
 <body>
@@ -186,27 +201,20 @@
         </form>
 
         <?php if (isset($_SESSION['popup_success']) && $_SESSION['popup_success'] === true): ?>
-            <div class="popup active" id="popupSuccess">
-                <h4 class="text-center mb-4">Laporan<br>Berhasil Dibuat</h4>
-                <div class="d-flex justify-content-center gap-3">
-                    <button class="btn btn-bordered" onclick="hidePopup()">Kembali</button>
-                    <button class="btn btn-bordered" onclick="location.href='?c=Lapor&m=status'">Lihat Status</button>
-                </div>
+            <div class="overlay active" id="overlay"></div>
+            <div class="pop-up active" id="pop-up">
+                <h2>Laporan Berhasil Dibuat</h2>
+                <p>Laporan Anda telah berhasil dikirim.</p>
+                <section class="d-flex justify-content-around">
+                    <button type="button" onclick="history.back()" class="btn btn-secondary w-100 mr-1">Kembali</button>
+                    <button type="button" onclick="window.location.href='?c=Lapor&m=status'" class="btn btn-primary">Lihat Status</button>
+                </section>
             </div>
             <?php unset($_SESSION['popup_success']);?>
         <?php endif; ?>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        function showSuccessPopup() {
-            document.getElementById("popupSuccess").classList.add("active");
-        }
-
-        function hidePopup() {
-            document.getElementById("popupSuccess").classList.remove("active");
-        }
-
         function previewFile(event) {
             const input = event.target;
             const previewContainer = document.getElementById("previewContainer");
