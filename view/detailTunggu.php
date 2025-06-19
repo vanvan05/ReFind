@@ -6,9 +6,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detail Barang</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="public/style/styles.css">
+    <link rel="stylesheet" href="public/style/styles-claims.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <style>
         .foto-barang img {
             width: 100%;
@@ -20,8 +22,17 @@
             font-weight: bold;
         }
 
+        .wrapper {
+            width: 100% !important;
+            max-width: 100vw !important;
+            padding: 0 !important;
+        }
+
         .container {
-            padding: 1rem;
+            width: 100% !important;
+            max-width: 100vw !important;
+            padding-left: 2vw !important;
+            padding-right: 2vw !important;
         }
 
         @media (max-width: 768px) {
@@ -66,48 +77,39 @@
         </div>
     </div>
 
-    <div class="popup" id="popupDelete">
-        <h4 class="text-center mb-4">Yakin Hapus Laporan?</h4>
-        <div class="d-flex justify-content-center gap-3">
-            <button class="btn btn-bordered" onclick="hidePopup()">Kembali</button>
-            <button class="btn btn-bordered" id="confirmDelete">Hapus</button>
-        </div>
+    <div class="overlay" id="overlay-delete"></div>
+    <div class="pop-up" id="pop-up-delete">
+        <h2>Yakin Hapus Laporan?</h2>
+        <p>Apakah Anda yakin ingin menghapus laporan ini?</p>
+        <section class="d-flex justify-content-around">
+            <button type="button" onclick="hidePopupDelete()" class="btn btn-secondary w-100 mr-1">Kembali</button>
+            <button type="button" id="confirmDelete" class="btn btn-danger w-100">Hapus</button>
+        </section>
     </div>
 
-    <div class="popup" id="popupSuccess">
-        <h4 class="text-center mb-4">Laporan<br>Berhasil Dihapus!</h4>
-        <div class="d-flex justify-content-center">
-            <button class="btn btn-bordered" id="backToStatus">Kembali</button>
-        </div>
+    <div class="overlay" id="overlay-success"></div>
+    <div class="pop-up" id="pop-up-success">
+        <h2>Laporan Berhasil Dihapus!</h2>
+        <p>Laporan Anda telah berhasil dihapus.</p>
+        <section class="d-flex justify-content-center">
+            <button type="button" id="backToStatus" class="btn btn-secondary w-100">Kembali</button>
+        </section>
     </div>
 
     <script>
         function showDeletePopup() {
-            document.getElementById("popupDelete").classList.add("active");
+            document.getElementById("overlay-delete").classList.add("active");
+            document.getElementById("pop-up-delete").classList.add("active");
         }
-
-        function hidePopup() {
-            document.getElementById("popupDelete").classList.remove("active");
-            document.getElementById("popupSuccess").classList.remove("active");
+        function hidePopupDelete() {
+            document.getElementById("overlay-delete").classList.remove("active");
+            document.getElementById("pop-up-delete").classList.remove("active");
         }
-
         document.getElementById("confirmDelete").addEventListener("click", function() {
             const id = "<?= $lapor['lost_item_id'] ?>";
-            const xhr = new XMLHttpRequest();
-            
-            xhr.open('GET', '?c=Lapor&m=delete&id=' + id, true);
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    document.getElementById("popupDelete").classList.remove("active");
-                    document.getElementById("popupSuccess").classList.add("active");
-                } else {
-                    alert('Gagal menghapus laporan');
-                }
-            };
-            xhr.send();
+            window.location.href = '?c=Lapor&m=delete&id=' + id;
         });
-
-        document.querySelector("#backToStatus").addEventListener("click", function() {
+        document.getElementById("backToStatus").addEventListener("click", function() {
             window.location.href = '?c=Lapor&m=status'; 
         });
     </script>
