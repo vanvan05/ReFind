@@ -1,0 +1,65 @@
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 0.5em;
+}
+#search-container{
+  width: 100%;
+  margin-bottom: 0.5em;
+}
+#search-container input{
+  width: 100%;
+  padding: 0.8em;
+}
+#mainmenu-container{
+  margin: 1em 0em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+.menu{
+  flex: 1; 
+  aspect-ratio: 3 / 2;
+  max-height: 10em;
+  padding: 2em;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+#temuanbaru-container{
+  width: 100%;
+  margin: 1em 0em;
+}
+#temuanbaru-container h2{
+  font-size: 1.8em;
+}
+.temuan-barang-container{
+  background-color: #f0f0f0; 
+  border-radius: 0.5em; 
+  padding: 1em;
+  margin: 1em 0em;
+  display: flex; 
+  align-items: center; 
+  gap: 1em;
+}
+.temuan-barang-container .info {
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5em; 
+  padding: 0.5em;
+}
+.temuan-barang-container img {
+  width: 8em; 
+  height: 8em;
+  aspect-ratio: 1/1;
+}
+.temuan-barang-container .detail-btn{
+  padding: 0.5em 1em;
+  margin-top: 0.5em;
+  align-self: flex-end;
+}

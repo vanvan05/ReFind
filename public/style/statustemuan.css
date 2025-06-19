@@ -1,0 +1,20 @@
+.item-status{
+  background-color: #f0f0f0; 
+  padding: 1em;
+  margin-bottom: 1em;
+  display: flex; 
+  align-items: center; 
+  gap: 1em;
+}
+.word-content{
+  flex: 1; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5em; 
+}
+.item-status img {
+  width: 6em; 
+  height: 6em;
+  aspect-ratio: 1/1;
+}

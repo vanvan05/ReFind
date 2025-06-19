@@ -1,0 +1,20 @@
+#submit-btn{
+  width: 100%;
+  margin: 2em 0;
+}
+    .modal-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem; 
+      margin-top: 1.5rem;
+    }
+    
+    .modal-buttons .btn {
+      flex: 1; 
+      max-width: 45%; 
+    }
+    
+    .modal-content {
+      padding: 2rem;
+      text-align: center;
+    }
