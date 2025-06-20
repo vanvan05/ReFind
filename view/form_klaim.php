@@ -19,26 +19,22 @@
         <main>
             <!-- Action ke controller Claim->submit -->
             <form id="claim-form" method="POST" action="index.php?c=Claim&m=submit" enctype="multipart/form-data">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>Bukti Gambar Kepemilikan</b></h5>
+                <div class="card m-3" style="border: none;">
+                        <h6 class="card-title m-0"><b>Bukti Gambar Kepemilikan</b></h6>
                         <p class="card-text">Unggah bukti kepemilikan barang Anda.</p>
                         <div id="image-preview"></div>
                         <div class="upload-box">
                             <input type="file" id="upload" name="ownership_image" class="form-control-file" multiple required>
                         </div>
-                    </div>
                 </div>
 
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <h5 class="card-title"><b>Pernyataan Pendukung</b></h5>
+                <div class="card m-3" style="border: none;">
+                        <h6 class="card-title m-0"><b>Pernyataan Pendukung</b></h6>
                         <p class="card-text">Masukkan pernyataan yang mendukung klaim Anda.</p>
                         <textarea id="claim-statement" name="claim_statement" placeholder="Ketik di sini..." class="form-control" required></textarea>
-                    </div>
                 </div>
                 <input type="hidden" name="item_id" value="<?= htmlspecialchars($item_id) ?>">
-                <div class="mt-3">
+                <div class="m-3">
                     <button type="submit" class="btn btn-primary">Kirim</button>
                 </div>
             </form>

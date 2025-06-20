@@ -14,8 +14,7 @@ class Claim extends Controller {
         $item_id = $_GET['item_id'] ?? null;
         $this->loadView('form_klaim.php', ['status' => $status, 'item_id' => $item_id]);
     }
-
-    // Menangani pengiriman form klaim
+    
     function submit() {
         session_start();
         $ownershipImage = $_FILES['ownership_image'] ?? null;

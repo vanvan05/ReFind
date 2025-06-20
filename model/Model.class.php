@@ -5,8 +5,8 @@ class Model {
   function __construct(){
     $hostname = 'localhost';
     $username = 'root';
-    $password = '';
-    $dbname = 'refind';
+    $password = 'root';
+    $dbname = 'refind2';
 
     $this->db = new mysqli($hostname, 
       $username, 
