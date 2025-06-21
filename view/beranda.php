@@ -4,47 +4,45 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ReFind</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
-  <link href="public/style/beranda.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link href="public/style/beranda.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <nav class="navbar bg-primary">
-      <div class="container-fluid">
-        <button class="icon-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">
-          <img src="public/images/menu-icon.svg" alt="Menu">
-        </button>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Menu ReFind</h5>
-            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <a href="http://localhost/ReFind/index.php?c=Findings&m=statustemuan">
-              <i class="bi bi-clipboard-check me-2"></i> Status Laporan Temuan
-            </a>
-            <a href="http://localhost/ReFind/index.php?c=Claim&m=status">
-              <i class="bi bi-card-checklist me-2"></i> Status Klaim Temuan
-            </a>
-            <a href="http://localhost/ReFind/index.php?c=Lapor&m=status">
-              <i class="bi bi-search me-2"></i> Status Laporan Hilang
-            </a>
-            <a href="http://localhost/ReFind/index.php?c=Auth&m=logout">
-              <i class="bi bi-box-arrow-right me-2"></i> Log Out
-            </a>
-          </div>
+  <nav class="navbar bg-primary">
+    <div class="container-fluid">
+      <button class="icon-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBackdrop" aria-controls="offcanvasWithBackdrop">
+        <img src="public/images/menu-icon.svg" alt="Menu">
+      </button>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Menu ReFind</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <h1>ReFind</h1>
-        <button class="icon-btn">
-          <img src="public/images/profile-icon.svg" alt="Profile">
-        </button>
+        <div class="offcanvas-body">
+          <a href="http://localhost/ReFind/index.php?c=Findings&m=statustemuan">
+            <i class="bi bi-clipboard-check me-2"></i> Status Laporan Temuan
+          </a>
+          <a href="http://localhost/ReFind/index.php?c=Claim&m=status">
+            <i class="bi bi-card-checklist me-2"></i> Status Klaim Temuan
+          </a>
+          <a href="http://localhost/ReFind/index.php?c=Lapor&m=status">
+            <i class="bi bi-search me-2"></i> Status Laporan Hilang
+          </a>
+          <a href="http://localhost/ReFind/index.php?c=Auth&m=logout">
+            <i class="bi bi-box-arrow-right me-2"></i> Log Out
+          </a>
+        </div>
       </div>
-    </nav>
+      <h1>ReFind</h1>
+      <button class="icon-btn">
+        <img src="public/images/profile-icon.svg" alt="Profile">
+      </button>
+    </div>
+  </nav>
 
   <div class="container mt-2">
       <div id="search-container">
-        <input type="text" placeholder="Cari">
+        <input type="text" name="keyword" placeholder="Cari">
       </div>
   
       <div id="mainmenu-container">
@@ -70,5 +68,7 @@
         <?php endforeach; ?>
       </div>
   </div>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
 </body>
 </html>
