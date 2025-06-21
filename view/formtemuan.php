@@ -51,7 +51,7 @@
               </div>
           </div>
           </div>
-        <button type="submit" class="btn btn-primary" id="submit-btn">Unggah</button>
+        <button type="submit" class="btn btn-primary" id="submit-btn">Kirim Laporan</button>
       </form>
   </div>
 

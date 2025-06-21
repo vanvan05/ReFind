@@ -31,10 +31,10 @@
       <h3>Deskripsi</h3>
       <p><?php echo $finding['deskripsi'];?></p>
     </div>
-    <button class="btn-claims">Lihat Klaim</button>
+    <button class="btn btn-outline-primary btn-claims">Lihat Klaim</button>
     <div class="buttons">
-      <button class="btn btn-delete" data-bs-toggle="modal" data-bs-target="#popup-konfirmhapus">Hapus</button>
-      <button class="btn btn-edit" onclick="location.href='?c=Findings&m=edit&id=<?php echo $finding['finding_id'];?>'">Edit</button>
+      <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#popup-konfirmhapus">Hapus</button>
+      <button class="btn btn-warning" onclick="location.href='?c=Findings&m=edit&id=<?php echo $finding['finding_id'];?>'">Edit</button>
     </div>
   </div>
 
