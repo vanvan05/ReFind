@@ -8,10 +8,10 @@
   <link href="public/style/detailtemuan.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <nav class="navbar bg-primary">
+  <nav class="navbar navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="http://localhost/ReFind/index.php?c=Findings&m=statustemuan">
-        <img src="public/images/weui_back-filled.svg" alt="back-icon" width="30" height="24" class="d-inline-block align-text-top">
+      <a class="navbar-brand text-white" href="http://localhost/ReFind/index.php?c=Findings&m=statustemuan">
+        <img src="public/images/weui_back-filled.svg" alt="back-icon" width="30" height="24" class="d-inline-block align-text-top me-2">
         Detail Temuan Barang
       </a>
     </div>

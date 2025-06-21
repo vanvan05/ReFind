@@ -8,14 +8,15 @@
   <link href="public/style/detailklaim.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <nav class="navbar bg-primary">
+  <nav class="navbar navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="http://localhost/ReFind/index.php?c=Findings&m=statustemuan">
-        <img src="public/images/weui_back-filled.svg" alt="back-icon" width="30" height="24" class="d-inline-block align-text-top">
+      <a class="navbar-brand text-white" href="http://localhost/ReFind/index.php?c=Findings&m=statustemuan">
+        <img src="public/images/weui_back-filled.svg" alt="back-icon" width="30" height="24" class="d-inline-block align-text-top me-2">
         Detail Klaim Temuan
-      </a> 
+      </a>
     </div>
   </nav>
+  
   <div class="container mt-2">
     <h2><?php echo $finding['nama_barang'];?></h2>
     <h3>Tervalidasi</h3>

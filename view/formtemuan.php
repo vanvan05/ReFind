@@ -8,14 +8,15 @@
   <link href="public/style/formtemuan.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <nav class="navbar bg-primary">
+  <nav class="navbar navbar-dark bg-primary">
     <div class="container-fluid">
-      <a class="navbar-brand" href="http://localhost/ReFind/index.php?c=Home&m=beranda">
-        <img src="public/images/weui_back-filled.svg" alt="back-icon" width="30" height="24" class="d-inline-block align-text-top">
-        Temuan Barang
+      <a class="navbar-brand text-white" href="http://localhost/ReFind/index.php?c=Home&m=beranda">
+        <img src="public/images/weui_back-filled.svg" alt="back-icon" width="30" height="24" class="d-inline-block align-text-top me-2">
+        Form Temuan Barang
       </a>
     </div>
   </nav>
+  
   <div class="container mt-2">
       <form id="temuanForm" action="?c=Findings&m=add" method="post" enctype="multipart/form-data" required>
         <input type="hidden" name="id">

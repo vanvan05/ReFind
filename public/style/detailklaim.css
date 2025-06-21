@@ -16,3 +16,8 @@
   border-radius: 50%;
   background:  #000;
 }
+.navbar-dark .navbar-brand,
+.navbar-dark .navbar-brand img {
+  color: white !important;
+  filter: brightness(0) invert(1) !important;
+}
