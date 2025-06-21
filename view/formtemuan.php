@@ -22,24 +22,35 @@
         <input type="hidden" name="id">
         <div class="mb-3">
           <label for="nama" class="form-label">Nama Barang</label>
-          <input type="text" class="form-control" name="nama-barang" aria-describedby="nama" required>
+          <input type="text" class="form-control" name="nama-barang" placeholder="Masukkan nama barang Anda" aria-describedby="nama" required>
         </div>
         <div class="mb-3">
           <label for="lokasi" class="form-label">Lokasi</label>
-          <input type="text" class="form-control" name="lokasi" aria-describedby="lokasi" required>
+          <input type="text" class="form-control" name="lokasi" placeholder="Masukkan lokasi penemuan barang" aria-describedby="lokasi" required>
         </div>
         <div class="mb-3">
           <label for="waktu" class="form-label">Waktu</label>
-          <input type="text" class="form-control" name="waktu" required>
+          <input type="text" class="form-control" name="waktu" placeholder="Masukkan waktu penemuan barang" required>
         </div>
         <div class="mb-3">
           <label for="deskripsi" class="form-label">Deskripsi Barang</label>
-          <textarea class="form-control" name="deskripsi" rows="3" required></textarea>
+          <textarea class="form-control" name="deskripsi" rows="3" placeholder="Masukkan deskripsi barang" required></textarea>
         </div>
         <div class="mb-3">
           <label for="formFile" class="form-label">Foto Barang</label>
-          <input class="form-control" type="file" id="formFile" name="foto" required>
-        </div>
+            <div class="file-input-container">
+              <input type="file" id="fileInput" name="foto" class="file-input" accept="image/*" onchange="previewFile(event)" required />
+              <label for="fileInput" class="file-input-label">
+                  <div class="file-info">
+                      <div class="file-name" id="fileName">📁 Upload Foto Barang</div>
+                      <div class="file-remove" id="removeBtn" style="display: none;">×</div>
+                  </div>
+              </label>
+              <div class="file-preview-container" id="previewContainer">
+                  <img id="previewImage" class="file-preview-img" src="" alt="Preview" />
+              </div>
+          </div>
+          </div>
         <button type="submit" class="btn btn-primary" id="submit-btn">Unggah</button>
       </form>
   </div>
@@ -63,6 +74,27 @@
   
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
   <script>
+    function previewFile(event) {
+      const input = event.target;
+      const previewContainer = document.getElementById("previewContainer");
+      const fileNameElement = document.getElementById("fileName");
+      const removeBtn = document.getElementById("removeBtn");
+
+      if (input.files.length > 0) {
+          const file = input.files[0];
+          fileNameElement.textContent = file.name;
+          removeBtn.style.display = "block";
+
+          const reader = new FileReader();
+          reader.onload = function(e) {
+              const previewImage = document.getElementById("previewImage");
+              previewImage.src = e.target.result;
+              previewContainer.style.display = "block";
+          };
+          reader.readAsDataURL(file);
+      }
+    }
+
     document.getElementById('temuanForm').addEventListener('submit', function(e) {
     e.preventDefault();
 
