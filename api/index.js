@@ -102,7 +102,117 @@ const deleteLaporan = async (req, res) => {
   }
 };
 
+// Use case "Laporan Temuan Barang"
+// function insert()
+const insert = async (req,res) => {
+  const { id, nama, lokasi, waktu, deskripsi, nama_foto } = req.body;
+  try {
+    const sql = `INSERT INTO findings (reporter_id, nama_barang, lokasi, waktu, deskripsi, foto_url) VALUES (?, ?, ?, ?, ?, ?)`;
+    const result = await db.execute(sql, [id, nama, lokasi, waktu, deskripsi, nama_foto]);
+    res.status(200).json({message: "Laporan berhasil dikirim"});
+  } catch(error){
+    res.status(409).json({error});
+  }
+}
 
+// function update()
+const update = async (req,res) => {
+  const { nama, lokasi, waktu, deskripsi, nama_foto } = req.body;
+  const { id } = req.params;
+  try {
+    const sql = `UPDATE findings SET nama_barang = ?, lokasi = ?, waktu = ?, deskripsi = ?, foto_url = ? WHERE finding_id = ?`;
+    const result = await db.execute(sql, [nama, lokasi, waktu, deskripsi, nama_foto, id]);
+    res.status(200).json({message: "Laporan berhasil diupdate"});
+  } catch(error){
+    res.status(409).json({error});
+  }
+}
+
+// function getFinding()
+const getFinding = async (req,res) => {
+  const { id } = req.params;
+  try {
+    const sql = `SELECT findings.*, u.* FROM findings JOIN users u ON findings.reporter_id = u.user_id WHERE findings.finding_id = ?`;
+    const [result] = await db.execute(sql, [id]);
+    res.status(200).json(result[0]);
+  } catch(error){
+    res.status(409).json({error});
+  }
+}
+
+// function getClaims()
+const getClaim = async (req,res) => {
+  const { id } = req.params;
+  try {
+    const sql = `SELECT claims.*, f.*, u.* FROM claims 
+      JOIN findings f ON claims.item_id = f.finding_id 
+      JOIN users u ON claims.claimer_id = u.user_id 
+      WHERE claims.item_id = ?`;
+    const [result] = await db.execute(sql, [id]);
+    res.status(200).json(result[0]);
+  } catch(error){
+    res.status(409).json({error});
+  }
+}
+
+// function getLatestFindings()
+const getLatestFindings = async (req,res) => {
+  try {
+    const sql = `SELECT * FROM findings ORDER BY finding_id DESC LIMIT 3`;
+    const [result] = await db.execute(sql);
+    res.status(200).json(result);
+  } catch(error){
+    res.status(409).json({error});
+  }
+}
+
+// function getFindingsByUser
+const getFindingsByUser = async (req,res) => {
+  const { id } = req.params;
+  try {
+    const sql = `SELECT * FROM findings WHERE reporter_id = ?`;
+    const [result] = await db.execute(sql, [id]);
+    res.status(200).json(result);
+  } catch(error){
+    res.status(409).json({error});
+  }
+}
+
+// function delete()
+const deleteFinding = async (req,res) => {
+  const { id } = req.params;
+  try {
+    const sql = `DELETE FROM findings WHERE finding_id = ?`;
+    const result = await db.execute(sql, [id]);
+    res.status(200).json({message: "Laporan berhasil dihapus!"});
+  } catch(error){
+    res.status(409).json({error});
+  }
+}
+
+// function deleteFoto()
+const deleteFoto = async (req,res) => {
+  const { id } = req.params;
+  try {
+    const sql = `UPDATE findings SET foto_url = NULL WHERE finding_id = ?`;
+    const result = await db.execute(sql, [id]);
+    res.status(200).json({message: "Foto berhasil dihapus!"});
+  } catch(error){
+    res.status(409).json({error});
+  }
+}
+
+// End points use case "Laporan Temuan Barang"
+router.post("/findings", insert);
+router.put("/findings/:id", update);
+router.get("/findings/:id", getFinding);
+router.get("/findings/:id/claims", getClaim);
+router.get("/findings", getLatestFindings);
+router.get("/findings/users/:id", getFindingsByUser);
+router.delete("/findings/:id", deleteFinding);
+router.delete("/findings/:id/foto", deleteFoto);
+
+// End points use case "Laporan Barang Hilang"
 router.post('/lapor', createLaporan);
 router.get('/lapor', getAllLaporan);
 router.get('/lapor/found', getFoundItems);
