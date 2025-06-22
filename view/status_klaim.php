@@ -22,7 +22,7 @@
                     onclick="window.location.href='<?php echo ($claim['is_validated'] == 1) ? 'index.php?c=Claim&m=detail_tervalidasi&id=' . $claim['claim_id'] : 'index.php?c=Claim&m=detail_onprocess&id=' . $claim['claim_id']; ?>'" 
                     style="cursor: pointer;">
                     <div class="d-flex align-items-center justify-content-center m-2">
-                        <img src="<?php echo htmlspecialchars($claim['barang_foto']); ?>" class="img-thumbnail mr-3" alt="<?php echo htmlspecialchars($claim['nama_barang']); ?>" style="width: 5em; height: auto;">
+                        <img src="uploaded_images/<?php echo htmlspecialchars($claim['barang_foto']); ?>" class="img-thumbnail mr-3" alt="<?php echo htmlspecialchars($claim['nama_barang']); ?>" style="width: 5em; height: auto;">
                         <div>
                             <h5 class="mb-0"><b><?php echo htmlspecialchars($claim['nama_barang']); ?></b></h5>
                             <p class="mb-0 <?php echo ($claim['is_validated'] == 0) ? 'text-warning' : 'text-success'; ?>">

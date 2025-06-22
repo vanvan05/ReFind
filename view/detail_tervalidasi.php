@@ -23,7 +23,7 @@
 
             <div class="card align-items-start mb-3 bg-light">
                 <div class="d-flex align-items-center justify-content-center m-2">
-                    <img src="<?php echo $claim['barang_foto']; ?>" class="img-thumbnail mr-3" alt="Handphone Samsung S24" style="width: 3.75em; height: auto;">
+                    <img src="uploaded_images/<?php echo $claim['barang_foto']; ?>" class="img-thumbnail mr-3" alt="Handphone Samsung S24" style="width: 3.75em; height: auto;">
                     <div>
                         <h5><b><?php echo $claim['reporter_nama']; ?></b></h5>
                         <p><b>Kontak: </b><?php echo $claim['reporter_email']; ?></p>

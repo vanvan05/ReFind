@@ -39,7 +39,7 @@
                 onclick="window.location.href='index.php?c=Lapor&m=dtlTemu&id=9999'"
                 style="cursor: pointer;">
                 <div class="d-flex align-items-center justify-content-center m-2">
-                    <img src="IMG_19329402.jpg" class="img-thumbnail mr-3" alt="Dompet Kulit Hitam" style="width: 5em; height: auto;">
+                    <img src="uploaded_images/lara.jpeg" class="img-thumbnail mr-3" alt="Dompet Kulit Hitam" style="width: 5em; height: auto;">
                     <div>
                         <h5 class="mb-0"><b>Dompet Kulit Hitam</b></h5>
                         <p class="mb-0 text-success">Ditemukan</p>
